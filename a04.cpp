@@ -17,15 +17,19 @@ using namespace std;
 
 int main()
 {
-	// Declare variables
-	int tvType;
-	double diagonalDimension, diagonalSquared;
-	double tvWidth, tvHeight, tvArea;
-	double lcd_ratio_height = 16.0 / 9.0;
-	double lcd_ratio_width = 9.0 / 16.0;
-	double regularTV_ratio_height = 4.0 / 3.0;
-	double regularTV_ratio_width = 3.0 / 4.0;
+	// user input
+	int tvType; // tv type chosen by user
+	double diagonal; // diagonal dimension input by user
+	
+	// traditional tv variables
+	double reg_width, reg_height, reg_area;
+	double reg_ratio_w = (3.0 / 4.0);
 
+	// lcd tv variables
+	double lcd_width, lcd_height, lcd_area;
+	double lcd_ratio_w = 9.0 / 16.0;
+	
+	
 	// Prompt user to input tv type
 	cout << "To calculate the width, height, and area of the TV, please enter one of the following options:" << endl;
 	cout << "1. Traditional (4:3) TV area." << endl;
@@ -36,51 +40,60 @@ int main()
 
 	// Prompt user for tv diagonal dimension (in inches)
 	cout << "Now, what is the diagonal dimension (in inches)? ";
-	cin >> diagonalDimension;
+	cin >> diagonal;
 	cout << endl;
 
-	diagonalSquared = diagonalDimension * diagonalDimension;
+	// output formatting
+	cout << fixed << setprecision(1);
+	
 	// switch case
-	cout << fixed << setprecision(2);
 	switch (tvType)
 	{
 	case(1):	// regular tv
-		tvWidth = sqrt(diagonalSquared / (regularTV_ratio_width + 1));
-		tvHeight = sqrt(diagonalSquared / (regularTV_ratio_height + 1));
-		tvArea = tvWidth * tvHeight;
-		cout << "TV width: " << tvWidth << endl;
-		cout << "TV height: " << tvHeight << endl;
-		cout << " TV area: " << tvArea << endl;
+		reg_width = sqrt(pow(diagonal, 2) / (pow(reg_ratio_w,2)+1)); // get width
+		reg_height = reg_width * reg_ratio_w; // get height
+		reg_area = reg_height * reg_width; // get area
+	
+		cout << "Traditional TV dimensions:" << endl;
+		cout << "TV width: " << reg_width << endl;
+		cout << "TV height: " << reg_height << endl;
+		cout << "TV area: " << reg_area << endl;
+		cout << endl;
 		break;
 	case(2):	// LCD tv
-		tvWidth = sqrt(diagonalSquared / (lcd_ratio_width + 1));
-		tvHeight = sqrt(diagonalSquared / (lcd_ratio_height + 1));
-		tvArea = tvWidth * tvHeight;
-		cout << "TV width: " << tvWidth << endl;
-		cout << "TV height: " << tvHeight << endl;
-		cout << "TV area: " << tvArea << endl;
+		lcd_width = sqrt(pow(diagonal, 2) / (pow(lcd_ratio_w, 2) + 1)); // get width
+		lcd_height = lcd_width * lcd_ratio_w; // get height
+		lcd_area = lcd_height * lcd_width; // get area
+		
+		cout << "LCD TV dimensions:" << endl;
+		cout << "TV width: " << lcd_width << endl;
+		cout << "TV height: " << lcd_height << endl;
+		cout << "TV area: " << lcd_area << endl;
+		cout << endl;
 		break;
 	case(3): // both types
 	// traditional tv
-		tvWidth = sqrt(diagonalSquared / (regularTV_ratio_width + 1));
-		tvHeight = sqrt(diagonalSquared / (regularTV_ratio_height + 1));
-		tvArea = tvWidth * tvHeight;
-		cout << "Traditional TV dimenstions:" << endl;
-		cout << "Width: " << tvWidth << endl;
-		cout << "Height: " << tvHeight << endl;
-		cout << "Area: " << tvArea << endl;
+		reg_width = sqrt(pow(diagonal, 2) / (pow(reg_ratio_w, 2) + 1)); // get width
+		reg_height = reg_width * reg_ratio_w; // get height
+		reg_area = reg_height * reg_width; // get area
+		
+		cout << "Traditional TV dimensions:" << endl;
+		cout << "TV width: " << reg_width << endl;
+		cout << "TV height: " << reg_height << endl;
+		cout << "TV area: " << reg_area << endl;
 		cout << endl;
-		// lcd tv
-		tvWidth = sqrt(diagonalSquared / (lcd_ratio_width + 1));
-		tvHeight = sqrt(diagonalSquared / (lcd_ratio_height + 1));
-		tvArea = tvWidth * tvHeight;
-		cout << "LCD TV dimenstions:" << endl;
-		cout << "Width: " << tvWidth << endl;
-		cout << "Height: " << tvHeight << endl;
-		cout << "Area: " << tvArea << endl;
+	// lcd tv
+		lcd_width = sqrt(pow(diagonal, 2) / (pow(lcd_ratio_w, 2) + 1)); // get width
+		lcd_height = lcd_width * lcd_ratio_w; // get height
+		lcd_area = lcd_height * lcd_width; // get area
+		
+		cout << "LCD TV dimensions:" << endl;
+		cout << "TV width: " << lcd_width << endl;
+		cout << "TV height: " << lcd_height << endl;
+		cout << "TV area: " << lcd_area << endl;
+		cout << endl;
 		break;
 	}
-
 
 	return 0;
 }
