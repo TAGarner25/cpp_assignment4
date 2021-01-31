@@ -21,10 +21,10 @@ int main()
 	int tvType;
 	double diagonalDimension, diagonalSquared;
 	double tvWidth, tvHeight, tvArea;
-	float lcd_ratio_height = 16.0 / 9.0;
-	float lcd_ratio_width = 9.0 / 16.0;
-	float regularTV_ratio_height = 4.0 / 3.0;
-	float regularTV_ratio_width = 3.0 / 4.0;
+	double lcd_ratio_height = 16.0 / 9.0;
+	double lcd_ratio_width = 9.0 / 16.0;
+	double regularTV_ratio_height = 4.0 / 3.0;
+	double regularTV_ratio_width = 3.0 / 4.0;
 
 	// Prompt user to input tv type
 	cout << "To calculate the width, height, and area of the TV, please enter one of the following options:" << endl;
